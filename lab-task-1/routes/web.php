@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Home Page
+Route::get('/customer/home',[CustomerController::class,'home'])->name('customer.Home');
+//Gallery
+Route::get('/customer/gallery',[CustomerController::class,'gallery'])->name('customer.gallery');
