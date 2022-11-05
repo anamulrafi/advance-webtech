@@ -38,3 +38,17 @@ Route::get('/customer/logout', [CustomerController::class, 'cusotmerLogout'])->n
 
 ///profile
 Route::get('/customer/profile', [CustomerController::class, 'customerProfile'])->name('customer.profile')->middleware('customerAuthorized');
+
+///room book
+Route::get('/customer/room/book', [CustomerController::class, 'customerRoomBook'])->name('customer.room.book')->middleware('customerAuthorized');
+Route::post('/customer/room/book', [CustomerController::class, 'customerRoomBookSubmit'])->name('customer.room.book.submit')->middleware('customerAuthorized');
+
+/// book room list
+Route::get('/customer/room/book/list', [CustomerController::class, 'customerRoomBookList'])->name('customer.room.book.list')->middleware('customerAuthorized');
+
+///Delete room book
+Route::get('/customer/room/book/delete/{id}',[CustomerController::class,'customerRoomBookDelete'])->name('customer.room.book.delete')->middleware('customerAuthorized');
+
+//edit room book
+Route::get('/customer/room/book/edit/{id}',[CustomerController::class,'customerRoomBookEdit'])->name('customer.room.book.edit')->middleware('customerAuthorized');
+Route::post('/customer/room/book/edit',[CustomerController::class,'customerRoomBookEditSubmit'])->name('customer.room.book.edit.submit')->middleware('customerAuthorized');
